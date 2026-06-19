@@ -429,8 +429,8 @@ void main()
         sub_4072();
         sub_5246();
     }
-    sub_8623();
-    sub_12404();
+    InitZonesPedType();
+    InitZonesCrime();
     StrCopy( ref g_U9921, "ERROR", 16 );
     StrCopy( ref g_U9926, "", 16 );
     g_U9930 = 0;
@@ -792,7 +792,7 @@ void sub_6386()
     return;
 }
 
-void sub_8623()
+void InitZonesPedType()
 {
     SET_ZONE_POPULATION_TYPE( "Zact1", 0 );
     SET_ZONE_POPULATION_TYPE( "Zact2", 0 );
@@ -1004,7 +1004,7 @@ void sub_8623()
     return;
 }
 
-void sub_12404()
+void InitZonesCrime()
 {
     SET_ZONE_SCUMMINESS( "Zact1", 4 );
     SET_ZONE_SCUMMINESS( "Zact2", 4 );

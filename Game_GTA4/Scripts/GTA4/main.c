@@ -1434,11 +1434,11 @@ void sub_14794(int iParam0, unknown uParam1)
 
 void sub_14954()
 {
-    REMOVE_ALL_CHAR_WEAPONS( sub_14963() );
+    REMOVE_ALL_CHAR_WEAPONS( GetPlayerReference() );
     return;
 }
 
-void sub_14963()
+void GetPlayerReference()
 {
     unknown Result;
 
@@ -3390,9 +3390,9 @@ void sub_42808()
     iVar12 = -1;
     if (NOT bVar6)
     {
-        if (NOT (IS_CHAR_DEAD( sub_14963() )))
+        if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
         {
-            GET_CHAR_COORDINATES( sub_14963(), ref uVar7._fU0, ref uVar7._fU4, ref uVar7._fU8 );
+            GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar7._fU0, ref uVar7._fU4, ref uVar7._fU8 );
             for ( I = 0; I < 5; I++ )
             {
                 if (g_U9943[I]._fU0)
@@ -3533,8 +3533,8 @@ void sub_43803(unknown uParam0)
     int iVar7;
     boolean bVar8;
 
-    iVar3 = GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 1 );
-    iVar4 = GET_CHAR_TEXTURE_VARIATION( sub_14963(), 1 );
+    iVar3 = GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 1 );
+    iVar4 = GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 1 );
     bVar8 = false;
     for ( I = 0; I < 45; I++ )
     {
@@ -3756,8 +3756,8 @@ void sub_44933(unknown uParam0)
     int iVar7;
     boolean bVar8;
 
-    iVar3 = GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 2 );
-    iVar4 = GET_CHAR_TEXTURE_VARIATION( sub_14963(), 2 );
+    iVar3 = GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 2 );
+    iVar4 = GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 2 );
     bVar8 = false;
     for ( I = 0; I < 26; I++ )
     {
@@ -3903,8 +3903,8 @@ void sub_45660(unknown uParam0)
     int iVar7;
     boolean bVar8;
 
-    iVar3 = GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 5 );
-    iVar4 = GET_CHAR_TEXTURE_VARIATION( sub_14963(), 5 );
+    iVar3 = GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 5 );
+    iVar4 = GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 5 );
     bVar8 = false;
     for ( I = 0; I < 20; I++ )
     {
@@ -4026,7 +4026,7 @@ void sub_46261(unknown uParam0)
     int iVar7;
     int iVar8;
 
-    GET_CHAR_PROP_INDEX( sub_14963(), 0, ref iVar3 );
+    GET_CHAR_PROP_INDEX( GetPlayerReference(), 0, ref iVar3 );
     (uParam0^) = 4;
     bVar6 = false;
     for ( I = -1; I <= 4; I++ )
@@ -4043,8 +4043,8 @@ void sub_46261(unknown uParam0)
     }
     if ((uParam0^) == -1)
     {
-        iVar7 = GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 8 );
-        iVar8 = GET_CHAR_TEXTURE_VARIATION( sub_14963(), 8 );
+        iVar7 = GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 8 );
+        iVar8 = GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 8 );
         if ((iVar7 == 1) AND (iVar8 == 0))
         {
             (uParam0^) = 3;
@@ -4089,7 +4089,7 @@ void sub_46558(unknown uParam0)
     int iVar5;
     boolean bVar6;
 
-    GET_CHAR_PROP_INDEX( sub_14963(), 1, ref iVar3 );
+    GET_CHAR_PROP_INDEX( GetPlayerReference(), 1, ref iVar3 );
     bVar6 = false;
     for ( I = -1; I <= 3; I++ )
     {
@@ -4638,12 +4638,12 @@ void sub_50406()
     bVar2 = false;
     if (IS_PLAYER_PLAYING( sub_7201() ))
     {
-        if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+        if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
         {
             if (NOT (g_U15936._fU24 == -1))
             {
                 uVar3 = g_U32697[g_U15936._fU24]._fU36;
-                if (IS_CHAR_IN_MODEL( sub_14963(), uVar3 ))
+                if (IS_CHAR_IN_MODEL( GetPlayerReference(), uVar3 ))
                 {
                     bVar2 = true;
                 }
@@ -4655,7 +4655,7 @@ void sub_50406()
     if (bVar2)
     {
         g_U15936._fU8 = 1;
-        STORE_CAR_CHAR_IS_IN_NO_SAVE( sub_14963(), ref g_U15936._fU32 );
+        STORE_CAR_CHAR_IS_IN_NO_SAVE( GetPlayerReference(), ref g_U15936._fU32 );
         g_U15936._fU24 = uVar4;
     }
     l_U30 = 0;
@@ -4681,16 +4681,16 @@ void sub_50584()
     {
         return;
     }
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         l_U30 = 1;
         SET_PLAYER_CAN_DO_DRIVE_BY( sub_7201(), 1 );
         return;
     }
-    if (IS_CHAR_IN_ANY_POLICE_VEHICLE( sub_14963() ))
+    if (IS_CHAR_IN_ANY_POLICE_VEHICLE( GetPlayerReference() ))
     {
-        STORE_CAR_CHAR_IS_IN_NO_SAVE( sub_14963(), ref uVar2 );
-        if ((NOT (IS_CHAR_IN_MODEL( sub_14963(), 837858166 ))) AND (NOT (IS_CHAR_IN_MODEL( sub_14963(), -488123221 ))))
+        STORE_CAR_CHAR_IS_IN_NO_SAVE( GetPlayerReference(), ref uVar2 );
+        if ((NOT (IS_CHAR_IN_MODEL( GetPlayerReference(), 837858166 ))) AND (NOT (IS_CHAR_IN_MODEL( GetPlayerReference(), -488123221 ))))
         {
             GET_CAR_SPEED( uVar2, ref fVar3 );
             if (fVar3 < 0.40000000)
@@ -7222,10 +7222,10 @@ void sub_74180(unknown uParam0)
         {
             if (DOES_CHAR_EXIST( g_U22274[uParam0]._fU500._fU184 ))
             {
-                if (NOT (IS_CHAR_DEAD( sub_14963() )))
+                if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
                 {
                     N_1363505769( g_U22274[uParam0]._fU500._fU184, ref uVar8._fU0, ref uVar8._fU4, ref uVar8._fU8 );
-                    GET_CHAR_COORDINATES( sub_14963(), ref uVar11._fU0, ref uVar11._fU4, ref uVar11._fU8 );
+                    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar11._fU0, ref uVar11._fU4, ref uVar11._fU8 );
                     fVar14 = 0.00000000;
                     GET_DISTANCE_BETWEEN_COORDS_3D( uVar8._fU0, uVar8._fU4, uVar8._fU8, uVar11._fU0, uVar11._fU4, uVar11._fU8, ref fVar14 );
                     if (fVar14 < 150.00000000)
@@ -7434,7 +7434,7 @@ int sub_75481(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3
         sub_75108( "\n player is not playing" );
         return 0;
     }
-    if ((IS_CHAR_IN_ANY_CAR( sub_14963() )) AND (NOT (IS_CHAR_SITTING_IN_ANY_CAR( sub_14963() ))))
+    if ((IS_CHAR_IN_ANY_CAR( GetPlayerReference() )) AND (NOT (IS_CHAR_SITTING_IN_ANY_CAR( GetPlayerReference() ))))
     {
         sub_75108( "\n player is in middle of getting in/out of a car" );
         return 0;
@@ -7592,9 +7592,9 @@ int sub_76053()
     }
     if (NOT (IS_PLAYER_FREE_FOR_AMBIENT_TASK( sub_7201() )))
     {
-        if (NOT (IS_CHAR_IN_ANY_CAR( sub_14963() )))
+        if (NOT (IS_CHAR_IN_ANY_CAR( GetPlayerReference() )))
         {
-            GET_SCRIPT_TASK_STATUS( sub_14963(), 53, ref uVar3 );
+            GET_SCRIPT_TASK_STATUS( GetPlayerReference(), 53, ref uVar3 );
             switch (uVar3)
             {
                 case 7:
@@ -7603,7 +7603,7 @@ int sub_76053()
                 return 0;
                 break;
                 default:
-                if (NOT (IS_CHAR_IN_WATER( sub_14963() )))
+                if (NOT (IS_CHAR_IN_WATER( GetPlayerReference() )))
                 {
                     bVar2 = true;
                 }
@@ -8512,9 +8512,9 @@ int sub_84850()
     fVar5 = 70.00000000;
     Result = -1;
     fVar13 = 0.00000000;
-    if (NOT (IS_CHAR_DEAD( sub_14963() )))
+    if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
     {
-        GET_CHAR_COORDINATES( sub_14963(), ref uVar7._fU0, ref uVar7._fU4, ref uVar7._fU8 );
+        GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar7._fU0, ref uVar7._fU4, ref uVar7._fU8 );
         I = 0;
         for ( I = 0; I < 7; I++ )
         {
@@ -9188,7 +9188,7 @@ void sub_90472(unknown uParam0)
     uVar3 = g_U10981[uParam0]._fU292._fU28._fU0;
     uVar4 = g_U10981[uParam0]._fU292._fU28._fU4;
     uVar5 = g_U10981[uParam0]._fU292._fU40;
-    if (LOCATE_CHAR_ANY_MEANS_2D( sub_14963(), uVar3, uVar4, uVar5, uVar5, 0 ))
+    if (LOCATE_CHAR_ANY_MEANS_2D( GetPlayerReference(), uVar3, uVar4, uVar5, uVar5, 0 ))
     {
         return;
     }
@@ -10217,7 +10217,7 @@ int sub_96365()
     array(ref fVar12, 5);
     if (IS_PLAYER_PLAYING( sub_7201() ))
     {
-        GET_CHAR_COORDINATES( sub_14963(), ref vVar20.x, ref vVar20.y, ref vVar20.z );
+        GET_CHAR_COORDINATES( GetPlayerReference(), ref vVar20.x, ref vVar20.y, ref vVar20.z );
         iVar26 = GET_MAP_AREA_FROM_COORDS( vVar20 );
     }
     else
@@ -10640,7 +10640,7 @@ int sub_100689()
     array(ref fVar12, 5);
     if (IS_PLAYER_PLAYING( sub_7201() ))
     {
-        GET_CHAR_COORDINATES( sub_14963(), ref vVar20.x, ref vVar20.y, ref vVar20.z );
+        GET_CHAR_COORDINATES( GetPlayerReference(), ref vVar20.x, ref vVar20.y, ref vVar20.z );
         iVar26 = GET_MAP_AREA_FROM_COORDS( vVar20 );
     }
     else
@@ -15442,7 +15442,7 @@ int sub_148266()
     {
         return 0;
     }
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return 0;
     }
@@ -15512,7 +15512,7 @@ int sub_148266()
     {
         uVar2[I]._fU32 = 0;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar139._fU0, ref uVar139._fU4, ref uVar139._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar139._fU0, ref uVar139._fU4, ref uVar139._fU8 );
     iVar142 = 0;
     fVar143 = 0.00000000;
     for ( I = 0; I < 15; I++ )
@@ -15784,7 +15784,7 @@ int sub_150457()
     {
         return 0;
     }
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return 0;
     }
@@ -15858,7 +15858,7 @@ int sub_150457()
     {
         uVar2[I]._fU32 = 0;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar148._fU0, ref uVar148._fU4, ref uVar148._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar148._fU0, ref uVar148._fU4, ref uVar148._fU8 );
     iVar151 = 0;
     fVar152 = 0.00000000;
     for ( I = 0; I < 16; I++ )
@@ -18302,37 +18302,37 @@ void sub_173781()
     sub_174740();
     if (IS_PLAYER_PLAYING( sub_7201() ))
     {
-        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 1 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( sub_14963(), 1 )) == 0)))
+        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 1 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 1 )) == 0)))
         {
-            SET_CHAR_COMPONENT_VARIATION( sub_14963(), 1, 0, 0 );
+            SET_CHAR_COMPONENT_VARIATION( GetPlayerReference(), 1, 0, 0 );
         }
-        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 2 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( sub_14963(), 2 )) == 0)))
+        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 2 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 2 )) == 0)))
         {
-            SET_CHAR_COMPONENT_VARIATION( sub_14963(), 2, 0, 0 );
+            SET_CHAR_COMPONENT_VARIATION( GetPlayerReference(), 2, 0, 0 );
         }
-        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 5 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( sub_14963(), 5 )) == 0)))
+        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 5 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 5 )) == 0)))
         {
-            SET_CHAR_COMPONENT_VARIATION( sub_14963(), 5, 0, 0 );
+            SET_CHAR_COMPONENT_VARIATION( GetPlayerReference(), 5, 0, 0 );
         }
-        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 4 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( sub_14963(), 4 )) == 0)))
+        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 4 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 4 )) == 0)))
         {
-            SET_CHAR_COMPONENT_VARIATION( sub_14963(), 4, 0, 0 );
+            SET_CHAR_COMPONENT_VARIATION( GetPlayerReference(), 4, 0, 0 );
         }
-        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( sub_14963(), 3 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( sub_14963(), 3 )) == 0)))
+        if ((NOT ((GET_CHAR_DRAWABLE_VARIATION( GetPlayerReference(), 3 )) == 0)) || (NOT ((GET_CHAR_TEXTURE_VARIATION( GetPlayerReference(), 3 )) == 0)))
         {
-            SET_CHAR_COMPONENT_VARIATION( sub_14963(), 3, 0, 0 );
+            SET_CHAR_COMPONENT_VARIATION( GetPlayerReference(), 3, 0, 0 );
         }
         iVar3 = -1;
-        GET_CHAR_PROP_INDEX( sub_14963(), 0, ref iVar3 );
+        GET_CHAR_PROP_INDEX( GetPlayerReference(), 0, ref iVar3 );
         if (NOT (iVar3 == -1))
         {
-            CLEAR_CHAR_PROP( sub_14963(), 0 );
+            CLEAR_CHAR_PROP( GetPlayerReference(), 0 );
         }
         iVar4 = -1;
-        GET_CHAR_PROP_INDEX( sub_14963(), 0, ref iVar4 );
+        GET_CHAR_PROP_INDEX( GetPlayerReference(), 0, ref iVar4 );
         if (NOT (iVar4 == -1))
         {
-            CLEAR_CHAR_PROP( sub_14963(), 1 );
+            CLEAR_CHAR_PROP( GetPlayerReference(), 1 );
         }
     }
     sub_43788();
@@ -18343,7 +18343,7 @@ void sub_173790()
 {
     int iVar2;
 
-    IS_CHAR_DEAD( sub_14963() );
+    IS_CHAR_DEAD( GetPlayerReference() );
     iVar2 = 0;
     STORE_SCORE( sub_7201(), ref iVar2 );
     iVar2 *= -1;
@@ -19376,11 +19376,11 @@ int sub_182876(int iParam0)
     {
         return 0;
     }
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return 1;
     }
-    bVar4 = IS_CHAR_IN_ANY_CAR( sub_14963() );
+    bVar4 = IS_CHAR_IN_ANY_CAR( GetPlayerReference() );
     iVar5 = 0;
     if (bVar4)
     {
@@ -19440,11 +19440,11 @@ boolean sub_183076(unknown uParam0, int iParam1)
     float fVar11;
     int iVar12;
 
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return 0;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar4._fU0, ref uVar4._fU4, ref uVar4._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar4._fU0, ref uVar4._fU4, ref uVar4._fU8 );
     Result = 0;
     if (sub_183136( uVar4, uParam0, ref Result ))
     {
@@ -19647,10 +19647,10 @@ int sub_184492()
     unknown uVar8;
     float fVar9;
 
-    bVar2 = IS_CHAR_DEAD( sub_14963() );
+    bVar2 = IS_CHAR_DEAD( GetPlayerReference() );
     if (NOT bVar2)
     {
-        GET_CHAR_COORDINATES( sub_14963(), ref uVar3._fU0, ref uVar3._fU4, ref uVar3._fU8 );
+        GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar3._fU0, ref uVar3._fU4, ref uVar3._fU8 );
     }
     fVar9 = 0.00000000;
     if (NOT bVar2)
@@ -21717,7 +21717,7 @@ int sub_206994(unknown uParam0, unknown uParam1, unknown uParam2)
     {
         return 1;
     }
-    if (HAS_CHAR_GOT_WEAPON( sub_14963(), uParam1 ))
+    if (HAS_CHAR_GOT_WEAPON( GetPlayerReference(), uParam1 ))
     {
         return 1;
     }
@@ -21727,7 +21727,7 @@ int sub_206994(unknown uParam0, unknown uParam1, unknown uParam2)
         REQUEST_MODEL( uParam0 );
         return 0;
     }
-    GIVE_WEAPON_TO_CHAR( sub_14963(), uParam1, uParam2, 0 );
+    GIVE_WEAPON_TO_CHAR( GetPlayerReference(), uParam1, uParam2, 0 );
     MARK_MODEL_AS_NO_LONGER_NEEDED( uParam0 );
     return 1;
 }
@@ -22037,7 +22037,7 @@ int sub_210074(unknown uParam0)
     unknown uVar15;
     float fVar16;
 
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return 1;
     }
@@ -22071,7 +22071,7 @@ int sub_210074(unknown uParam0)
     {
         return 0;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar13._fU0, ref uVar13._fU4, ref uVar13._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar13._fU0, ref uVar13._fU4, ref uVar13._fU8 );
     fVar16 = 0.00000000;
     GET_DISTANCE_BETWEEN_COORDS_3D( uVar13._fU0, uVar13._fU4, uVar13._fU8, uVar7._fU0, uVar7._fU4, uVar7._fU8, ref fVar16 );
     if (fVar16 < 200.00000000)
@@ -25253,7 +25253,7 @@ void sub_243500()
                 g_U15936._fU16 = 0;
                 return;
             }
-            if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( sub_14963() )))
+            if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( GetPlayerReference() )))
             {
                 g_U15936._fU16 = 0;
                 g_U15936._fU8 = 0;
@@ -25264,9 +25264,9 @@ void sub_243500()
                 g_U15936._fU16 = 0;
                 return;
             }
-            if (NOT (IS_CHAR_DEAD( sub_14963() )))
+            if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
             {
-                if (IS_CHAR_SHOOTING( sub_14963() ))
+                if (IS_CHAR_SHOOTING( GetPlayerReference() ))
                 {
                     g_U15936._fU16 = 0;
                 }
@@ -25289,9 +25289,9 @@ void sub_243500()
         {
             return;
         }
-        if (NOT (IS_CHAR_DEAD( sub_14963() )))
+        if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
         {
-            if (IS_CHAR_SHOOTING( sub_14963() ))
+            if (IS_CHAR_SHOOTING( GetPlayerReference() ))
             {
                 return;
             }
@@ -25333,7 +25333,7 @@ void sub_243500()
     }
     if (NOT g_U15936._fU0)
     {
-        if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( sub_14963() )))
+        if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( GetPlayerReference() )))
         {
             g_U15936._fU0 = 1;
             g_U15936._fU8 = 0;
@@ -25360,7 +25360,7 @@ void sub_243500()
     }
     if (NOT g_U15936._fU8)
     {
-        if (IS_CHAR_SITTING_IN_ANY_CAR( sub_14963() ))
+        if (IS_CHAR_SITTING_IN_ANY_CAR( GetPlayerReference() ))
         {
             g_U15936._fU12 = 0;
             sub_244946();
@@ -25379,9 +25379,9 @@ void sub_243500()
             return;
         }
     }
-    if (NOT (IS_CHAR_DEAD( sub_14963() )))
+    if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
     {
-        if (NOT (IS_CHAR_SHOOTING( sub_14963() )))
+        if (NOT (IS_CHAR_SHOOTING( GetPlayerReference() )))
         {
             if (((NOT IS_SCREEN_FADED_OUT()) AND (NOT IS_SCREEN_FADING_OUT())) AND (NOT IS_SCREEN_FADING_IN()))
             {
@@ -25438,7 +25438,7 @@ int sub_244002()
     for ( I = 0; I < g_U32824; I++ )
     {
         iVar3 = g_U32697[I]._fU36;
-        if (IS_CHAR_IN_MODEL( sub_14963(), iVar3 ))
+        if (IS_CHAR_IN_MODEL( GetPlayerReference(), iVar3 ))
         {
             if (sub_244093( I ))
             {
@@ -25540,9 +25540,9 @@ void sub_244946()
     for ( I = 0; I < g_U32824; I++ )
     {
         iVar3 = g_U32697[I]._fU36;
-        if (IS_CHAR_IN_MODEL( sub_14963(), iVar3 ))
+        if (IS_CHAR_IN_MODEL( GetPlayerReference(), iVar3 ))
         {
-            STORE_CAR_CHAR_IS_IN_NO_SAVE( sub_14963(), ref g_U15936._fU32 );
+            STORE_CAR_CHAR_IS_IN_NO_SAVE( GetPlayerReference(), ref g_U15936._fU32 );
             if (sub_244130( I ))
             {
                 if (NOT g_U15936._fU8)
@@ -25613,7 +25613,7 @@ void sub_245354(unknown uParam0, boolean bParam1)
             uVar7 = sub_48070( uParam0, iVar5 );
             uVar8 = g_U26758[uVar7]._fU16;
             fVar9 = g_U9387[uVar8]._fU0._fU8 + 2.00000000;
-            LOCATE_CHAR_ON_FOOT_3D( sub_14963(), g_U9387[uVar8]._fU0._fU0, g_U9387[uVar8]._fU0._fU4, fVar9, 1.60000000, 1.60000000, 2.00000000, 1 );
+            LOCATE_CHAR_ON_FOOT_3D( GetPlayerReference(), g_U9387[uVar8]._fU0._fU0, g_U9387[uVar8]._fU0._fU4, fVar9, 1.60000000, 1.60000000, 2.00000000, 1 );
         }
     }
     if (g_U10980)
@@ -25753,7 +25753,7 @@ int sub_245867(int iParam0, boolean bParam1)
     bVar7 = false;
     if (g_U9387[uVar6]._fU16)
     {
-        if (LOCATE_CHAR_ON_FOOT_3D( sub_14963(), g_U9387[uVar6]._fU0._fU0, g_U9387[uVar6]._fU0._fU4, g_U9387[uVar6]._fU0._fU8, 1.60000000, 1.60000000, 2.00000000, 0 ))
+        if (LOCATE_CHAR_ON_FOOT_3D( GetPlayerReference(), g_U9387[uVar6]._fU0._fU0, g_U9387[uVar6]._fU0._fU4, g_U9387[uVar6]._fU0._fU8, 1.60000000, 1.60000000, 2.00000000, 0 ))
         {
             bVar7 = true;
         }
@@ -25763,7 +25763,7 @@ int sub_245867(int iParam0, boolean bParam1)
     {
         if (g_U9387[uVar6]._fU20)
         {
-            if (LOCATE_CHAR_IN_CAR_3D( sub_14963(), g_U9387[uVar6]._fU0._fU0, g_U9387[uVar6]._fU0._fU4, g_U9387[uVar6]._fU0._fU8, 2.50000000, 2.50000000, 2.00000000, 0 ))
+            if (LOCATE_CHAR_IN_CAR_3D( GetPlayerReference(), g_U9387[uVar6]._fU0._fU0, g_U9387[uVar6]._fU0._fU4, g_U9387[uVar6]._fU0._fU8, 2.50000000, 2.50000000, 2.00000000, 0 ))
             {
                 bVar7 = true;
             }
@@ -25883,9 +25883,9 @@ int sub_246316(boolean bParam0, boolean bParam1)
     }
     if (bParam1)
     {
-        if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+        if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
         {
-            STORE_CAR_CHAR_IS_IN_NO_SAVE( sub_14963(), ref uVar4 );
+            STORE_CAR_CHAR_IS_IN_NO_SAVE( GetPlayerReference(), ref uVar4 );
             if (NOT (IS_CAR_DEAD( uVar4 )))
             {
                 GET_CAR_UPRIGHT_VALUE( uVar4, ref fVar6 );
@@ -25898,22 +25898,22 @@ int sub_246316(boolean bParam0, boolean bParam1)
     }
     if (bParam0)
     {
-        if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+        if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
         {
-            STORE_CAR_CHAR_IS_IN_NO_SAVE( sub_14963(), ref uVar4 );
+            STORE_CAR_CHAR_IS_IN_NO_SAVE( GetPlayerReference(), ref uVar4 );
             if (NOT (IS_CAR_DEAD( uVar4 )))
             {
                 GET_DRIVER_OF_CAR( uVar4, ref iVar5 );
-                if (NOT (iVar5 == sub_14963()))
+                if (NOT (iVar5 == GetPlayerReference()))
                 {
                     return 0;
                 }
             }
         }
     }
-    if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+    if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
     {
-        if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( sub_14963() )))
+        if (NOT (IS_CHAR_SITTING_IN_ANY_CAR( GetPlayerReference() )))
         {
             return 0;
         }
@@ -26004,20 +26004,20 @@ void sub_247786()
 
 void sub_247844()
 {
-    int iVar2;
+    //int Health;
 
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return;
     }
-    iVar2 = 0;
-    GET_CHAR_HEALTH( sub_14963(), ref iVar2 );
-    if (iVar2 >= 150)
+    int Health = 0;
+    GET_CHAR_HEALTH( GetPlayerReference(), ref Health );
+    if (Health >= 150)
     {
         return;
     }
-    SET_CHAR_HEALTH( sub_14963(), 150 );
-    RESET_VISIBLE_PED_DAMAGE( sub_14963() );
+    SET_CHAR_HEALTH( GetPlayerReference(), 150 );
+    RESET_VISIBLE_PED_DAMAGE( GetPlayerReference() );
     return;
 }
 
@@ -26441,9 +26441,9 @@ void sub_250297()
     switch (l_U8)
     {
         case 1:
-        if (NOT (IS_CHAR_DEAD( sub_14963() )))
+        if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
         {
-            GET_CHAR_SPEED( sub_14963(), ref fVar4 );
+            GET_CHAR_SPEED( GetPlayerReference(), ref fVar4 );
             if (NOT l_U23)
             {
                 if (fVar4 < 1.00000000)
@@ -26525,7 +26525,7 @@ void sub_250297()
         {
             if (IS_PLAYER_PLAYING( sub_7201() ))
             {
-                CLEAR_CHAR_TASKS( sub_14963() );
+                CLEAR_CHAR_TASKS( GetPlayerReference() );
             }
             if (DOES_VEHICLE_EXIST( l_U9 ))
             {
@@ -26588,14 +26588,14 @@ void sub_250297()
         {
             if (IS_PLAYER_PLAYING( sub_7201() ))
             {
-                if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+                if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
                 {
-                    CLEAR_CHAR_TASKS_IMMEDIATELY( sub_14963() );
+                    CLEAR_CHAR_TASKS_IMMEDIATELY( GetPlayerReference() );
                 }
                 else
                 {
                     SET_PLAYER_CONTROL( sub_7201(), 0 );
-                    CLEAR_CHAR_TASKS_IMMEDIATELY( sub_14963() );
+                    CLEAR_CHAR_TASKS_IMMEDIATELY( GetPlayerReference() );
                 }
             }
             if (DOES_VEHICLE_EXIST( l_U9 ))
@@ -26608,13 +26608,13 @@ void sub_250297()
             SET_WIDESCREEN_BORDERS( 0 );
             l_U8 = 4;
             sub_51601();
-            if (NOT (IS_CHAR_DEAD( sub_14963() )))
+            if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
             {
-                if (IS_CHAR_ON_FIRE( sub_14963() ))
+                if (IS_CHAR_ON_FIRE( GetPlayerReference() ))
                 {
-                    EXTINGUISH_CHAR_FIRE( sub_14963() );
+                    EXTINGUISH_CHAR_FIRE( GetPlayerReference() );
                 }
-                SET_CHAR_PROOFS( sub_14963(), 0, 0, 0, 0, 0 );
+                SET_CHAR_PROOFS( GetPlayerReference(), 0, 0, 0, 0, 0 );
             }
             sub_251231();
         }
@@ -26669,9 +26669,9 @@ void sub_251763()
     l_U22 = (iVar2 + 500) + 500;
     l_U8 = 6;
     sub_6591();
-    if (NOT (IS_CHAR_DEAD( sub_14963() )))
+    if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
     {
-        SET_CHAR_PROOFS( sub_14963(), 1, 1, 1, 1, 1 );
+        SET_CHAR_PROOFS( GetPlayerReference(), 1, 1, 1, 1, 1 );
     }
     return;
 }
@@ -26696,7 +26696,7 @@ void sub_252127(unknown uParam0)
 {
     if (IS_PLAYER_PLAYING( sub_7201() ))
     {
-        if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+        if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
         {
             SET_PLAYER_CONTROL( sub_7201(), 0 );
         }
@@ -26830,7 +26830,7 @@ void sub_252953()
         return;
     }
     SET_PLAYER_CONTROL( sub_7201(), 0 );
-    CLEAR_CHAR_TASKS( sub_14963() );
+    CLEAR_CHAR_TASKS( GetPlayerReference() );
     DO_SCREEN_FADE_OUT( 500 );
     sub_250930();
     iVar2 = 0;
@@ -27196,7 +27196,7 @@ void sub_254509(int iParam0, boolean bParam1)
                 sub_255799( iParam0 );
                 if (IS_PLAYER_PLAYING( sub_7201() ))
                 {
-                    STOP_PED_SPEAKING( sub_14963(), 1 );
+                    STOP_PED_SPEAKING( GetPlayerReference(), 1 );
                 }
                 if (iVar4 == 0)
                 {
@@ -27413,7 +27413,7 @@ void sub_256856()
     {
         return;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar2._fU0, ref uVar2._fU4, ref uVar2._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar2._fU0, ref uVar2._fU4, ref uVar2._fU8 );
     iVar5 = GET_MAP_AREA_FROM_COORDS( uVar2 );
     iVar6 = 0;
     if (l_U497 > l_U495)
@@ -27460,12 +27460,12 @@ void sub_257140()
     }
     iVar2 = 0;
     GET_GAME_TIMER( ref iVar2 );
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         sub_6311();
         return;
     }
-    if (IS_CHAR_SHOOTING( sub_14963() ))
+    if (IS_CHAR_SHOOTING( GetPlayerReference() ))
     {
         if (NOT g_U9380._fU4)
         {
@@ -27801,11 +27801,11 @@ int sub_258646(unknown uParam0, unknown uParam1)
     iVar4 = uParam0;
     if (iVar4 == 42)
     {
-        if (NOT (IS_CHAR_DEAD( sub_14963() )))
+        if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
         {
-            if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+            if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
             {
-                if ((IS_CHAR_IN_MODEL( sub_14963(), -1932515764 )) || (IS_CHAR_IN_MODEL( sub_14963(), -276900515 )))
+                if ((IS_CHAR_IN_MODEL( GetPlayerReference(), -1932515764 )) || (IS_CHAR_IN_MODEL( GetPlayerReference(), -276900515 )))
                 {
                     (uParam1^) = 1;
                     return 1;
@@ -27910,11 +27910,11 @@ void sub_259217()
                     }
                 }
             }
-            else if (NOT (IS_CHAR_DEAD( sub_14963() )))
+            else if (NOT (IS_CHAR_DEAD( GetPlayerReference() )))
             {
-                if (LOCATE_CHAR_ANY_MEANS_3D( sub_14963(), g_U10324[l_U39]._fU0._fU0, g_U10324[l_U39]._fU0._fU4, g_U10324[l_U39]._fU0._fU8, 15.00000000, 15.00000000, 7.00000000, 0 ))
+                if (LOCATE_CHAR_ANY_MEANS_3D( GetPlayerReference(), g_U10324[l_U39]._fU0._fU0, g_U10324[l_U39]._fU0._fU4, g_U10324[l_U39]._fU0._fU8, 15.00000000, 15.00000000, 7.00000000, 0 ))
                 {
-                    GET_INTERIOR_FROM_CHAR( sub_14963(), ref iVar4 );
+                    GET_INTERIOR_FROM_CHAR( GetPlayerReference(), ref iVar4 );
                     if ((NOT (iVar4 == nil)) || (sub_260106( l_U39 )))
                     {
                         if (sub_260452( l_U39 ))
@@ -28040,7 +28040,7 @@ int sub_260106(unknown uParam0)
         {
             fVar9 = 5.00000000;
         }
-        if (LOCATE_CHAR_ON_FOOT_3D( sub_14963(), g_U10324[uParam0]._fU0._fU0, g_U10324[uParam0]._fU0._fU4, g_U10324[uParam0]._fU0._fU8, fVar9, fVar9, 5.00000000, 0 ))
+        if (LOCATE_CHAR_ON_FOOT_3D( GetPlayerReference(), g_U10324[uParam0]._fU0._fU0, g_U10324[uParam0]._fU0._fU4, g_U10324[uParam0]._fU0._fU8, fVar9, fVar9, 5.00000000, 0 ))
         {
             return 1;
         }
@@ -28053,7 +28053,7 @@ int sub_260106(unknown uParam0)
         {
             fVar9 = 10.00000000;
         }
-        if (LOCATE_CHAR_ANY_MEANS_3D( sub_14963(), g_U10324[uParam0]._fU0._fU0, g_U10324[uParam0]._fU0._fU4, g_U10324[uParam0]._fU0._fU8, fVar9, fVar9, 5.00000000, 0 ))
+        if (LOCATE_CHAR_ANY_MEANS_3D( GetPlayerReference(), g_U10324[uParam0]._fU0._fU0, g_U10324[uParam0]._fU0._fU4, g_U10324[uParam0]._fU0._fU8, fVar9, fVar9, 5.00000000, 0 ))
         {
             return 1;
         }
@@ -28168,11 +28168,11 @@ void sub_260801()
         sub_6374();
         return;
     }
-    if (IS_CHAR_DEAD( sub_14963() ))
+    if (IS_CHAR_DEAD( GetPlayerReference() ))
     {
         return;
     }
-    GET_CHAR_COORDINATES( sub_14963(), ref uVar2._fU0, ref uVar2._fU4, ref uVar2._fU8 );
+    GET_CHAR_COORDINATES( GetPlayerReference(), ref uVar2._fU0, ref uVar2._fU4, ref uVar2._fU8 );
     if (IS_CHAR_INJURED( g_U64542._fU4 ))
     {
         N_1363505769( g_U64542._fU4, ref uVar5._fU0, ref uVar5._fU4, ref uVar5._fU8 );
@@ -28887,7 +28887,7 @@ void sub_265082()
         }
     }
     CLEAR_WANTED_LEVEL( sub_7201() );
-    CLEAR_CHAR_TASKS_IMMEDIATELY( sub_14963() );
+    CLEAR_CHAR_TASKS_IMMEDIATELY( GetPlayerReference() );
     sub_120095();
     uVar11 = sub_48070( g_U9893._fU40, g_U9893._fU44 );
     uVar12 = g_U26758[uVar11]._fU12;
@@ -29452,16 +29452,16 @@ void sub_269745(unknown uParam0, unknown uParam1, unknown uParam2, unknown uPara
     {
         if (NOT (sub_269777( uParam0, uParam1, uParam2 )))
         {
-            if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+            if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
             {
-                WARP_CHAR_FROM_CAR_TO_COORD( sub_14963(), uParam0, uParam1, uParam2 );
+                WARP_CHAR_FROM_CAR_TO_COORD( GetPlayerReference(), uParam0, uParam1, uParam2 );
             }
             else
             {
-                SET_CHAR_COORDINATES( sub_14963(), uParam0, uParam1, uParam2 );
+                SET_CHAR_COORDINATES( GetPlayerReference(), uParam0, uParam1, uParam2 );
             }
         }
-        SET_CHAR_HEADING( sub_14963(), uParam3 );
+        SET_CHAR_HEADING( GetPlayerReference(), uParam3 );
         SET_GAME_CAM_HEADING( 0.00000000 );
     }
     return;
@@ -29505,15 +29505,15 @@ int sub_269829(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam
     uVar9 = GET_HASH_KEY( uParam6 );
     GET_INTERIOR_AT_COORDS( uParam0._fU0, uParam0._fU4, uParam0._fU8, ref uVar10 );
     LOAD_SCENE_FOR_ROOM_BY_KEY( uVar10, uVar9 );
-    if (IS_CHAR_IN_ANY_CAR( sub_14963() ))
+    if (IS_CHAR_IN_ANY_CAR( GetPlayerReference() ))
     {
-        WARP_CHAR_FROM_CAR_TO_COORD( sub_14963(), uParam0._fU0, uParam0._fU4, uParam0._fU8 );
+        WARP_CHAR_FROM_CAR_TO_COORD( GetPlayerReference(), uParam0._fU0, uParam0._fU4, uParam0._fU8 );
     }
     else
     {
-        SET_CHAR_COORDINATES( sub_14963(), uParam0._fU0, uParam0._fU4, uParam0._fU8 );
+        SET_CHAR_COORDINATES( GetPlayerReference(), uParam0._fU0, uParam0._fU4, uParam0._fU8 );
     }
-    SET_ROOM_FOR_CHAR_BY_KEY( sub_14963(), uVar9 );
+    SET_ROOM_FOR_CHAR_BY_KEY( GetPlayerReference(), uVar9 );
     return 1;
 }
 
