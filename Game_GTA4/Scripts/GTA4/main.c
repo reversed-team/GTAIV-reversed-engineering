@@ -1,8 +1,14 @@
+#include <natives.h>
+#include <common.h>
+#include <strings.h>
+#include <types.h>
+#include <consts.h>
+
 void main()
 {
     int iVar2;
     int iVar3;
-    boolean bVar4;
+    bool bVar4;
     unknown uVar5;
 
     l_U4 = 0;
@@ -85,7 +91,7 @@ void main()
     {
         WAIT( 0 );
     }
-    FORCE_LOADING_SCREEN( 0 );
+    FORCE_LOADING_SCREEN(FALSE);
     while (true)
     {
         WAIT( 0 );
@@ -4205,7 +4211,7 @@ void sub_47308()
         g_U8673 = 0;
         g_U8674 = 0;
         g_U21 = 0;
-        FORCE_LOADING_SCREEN( 0 );
+        FORCE_LOADING_SCREEN(FALSE);
         SUPPRESS_FADE_IN_AFTER_DEATH_ARREST( 0 );
         sub_52925();
         l_U498 = 0;
