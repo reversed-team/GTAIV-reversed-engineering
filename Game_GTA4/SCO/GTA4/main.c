@@ -4,6 +4,8 @@
 #include <types.h>
 #include <consts.h>
 
+#include "pedplayer.h"
+
 void main()
 {
     int iVar2;
@@ -1442,14 +1444,6 @@ void sub_14954()
 {
     REMOVE_ALL_CHAR_WEAPONS( GetPlayerReference() );
     return;
-}
-
-void GetPlayerReference()
-{
-    unknown Result;
-
-    GET_PLAYER_CHAR( CONVERT_INT_TO_PLAYERINDEX( GET_PLAYER_ID() ), ref Result );
-    return Result;
 }
 
 void sub_15019()

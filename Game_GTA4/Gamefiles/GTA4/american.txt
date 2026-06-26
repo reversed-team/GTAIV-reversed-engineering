@@ -3259,7 +3259,7 @@ MAIN
 	0x6380582F = ZOOM RADAR OUT
 	0x6453658E = ~z~~x~Ice cold Nicky, you're a fucking prince. He's a prince, ain't he ladies? Ain't he?
 	0x6492435E = Jump
-	0x6590153B = PLAY
+	E1_SELECT = PLAY
 	0x6591620E = ~z~Republican Space Rangers!
 	0x6811126E = People Carrier
 	0x6821776C = ~z~And he definitely has hairplugs and lifts. Call John Hunter.
